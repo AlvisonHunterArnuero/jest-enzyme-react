@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import actions from '../actions';
-import '../styles/components/Products.styl';
-import Product from './Product';
-import toast from 'react-hot-toast';
+import React from "react";
+import { connect } from "react-redux";
+import actions from "../actions";
+import "../styles/components/Products.styl";
+import Product from "./Product";
+import toast from "react-hot-toast";
 
-const Products = (props) => {
+const Products = props => {
   const { products } = props;
   const handleAddToCart = product => () => {
     props.addToCart(product);
@@ -27,14 +27,14 @@ const Products = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    products: state.products,
+    products: state.products
   };
 };
 
 const mapDispatchToProps = {
-  addToCart: actions.addToCart,
+  addToCart: actions.addToCart
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

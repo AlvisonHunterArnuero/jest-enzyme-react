@@ -1,14 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import actions from '../actions';
-import '../styles/components/Checkout.styl';
-import toast, {Toaster} from 'react-hot-toast';
+import React from "react";
+import { connect } from "react-redux";
+import actions from "../actions";
+import "../styles/components/Checkout.styl";
+import toast, { Toaster } from "react-hot-toast";
 
-const Checkout = (props) => {
+const Checkout = props => {
   const { cart } = props;
 
   const handleSumTotal = () => {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+    const reducer = (accumulator, currentValue) =>
+      accumulator + currentValue.price;
     const sum = cart.reduce(reducer, 0);
     return sum;
   };
@@ -24,18 +25,16 @@ const Checkout = (props) => {
       <div className="container-fluid">
         <div className="row justify-content-between align-items-center">
           <div className="col-12">
-          <h3 className="text-warning text-end fs-6">{cart.length > 0 ? 'Shopping Cart' : 'This cart is empty...'}</h3>
+            <h3 className="text-warning text-end fs-6">
+              {cart.length > 0 ? "Shopping Cart" : "This cart is empty..."}
+            </h3>
           </div>
-        
         </div>
         {cart.map(item => (
           <div className="Checkout-item" key={item.title}>
             <div className="Checkout-element">
               <span>{item.title}</span>
-              <span className="text-success">
-                $
-                {item.price}
-              </span>
+              <span className="text-success">${item.price}</span>
             </div>
             <button
               type="button"
@@ -58,14 +57,14 @@ const Checkout = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    cart: state.cart,
+    cart: state.cart
   };
 };
 
 const mapDispatchToProps = {
-  removeFromCart: actions.removeFromCart,
+  removeFromCart: actions.removeFromCart
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
