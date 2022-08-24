@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const errorImage =
   "https://res.cloudinary.com/alvison-hunter/image/upload/v1661298881/JestEnzymeReact/404Error_auvbu8.png";
 const NotFound = () => {
@@ -15,9 +16,9 @@ const NotFound = () => {
             <p className="text-info fs-3 my-2">
               Hey, now! You're far beyond the border, pal! Go back, home!
             </p>
-            <button type="button" className="btn btn-outline-danger mb-5">
+            <Link to="/" className="btn btn-outline-danger mb-5">
               Reroute
-            </button>
+            </Link>
           </div>
         </div>
       </div>
